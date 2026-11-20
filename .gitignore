@@ -1,0 +1,18 @@
+# Environment variables (Do NOT commit secrets to GitHub)
+.env
+.env.local
+
+# SQLite local database
+feedback.db
+feedback.db-journal
+
+# Dependencies
+node_modules/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*

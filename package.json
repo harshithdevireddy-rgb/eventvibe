@@ -1,0 +1,23 @@
+{
+  "name": "ai-event-feedback-collector",
+  "version": "1.0.0",
+  "description": "AI-Powered Event Feedback Collector & Analytics Dashboard",
+  "main": "server.js",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "ai",
+    "feedback",
+    "sentiment-analysis",
+    "full-stack",
+    "dashboard"
+  ],
+  "author": "Harshith Devireddy",
+  "license": "MIT"
+}

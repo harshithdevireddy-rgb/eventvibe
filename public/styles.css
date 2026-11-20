@@ -1,0 +1,515 @@
+/* 1. Custom CSS Styles for EventVibe */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Ambient Moving Glow Animation */
+@keyframes ambientDrift {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
+  66% {
+    transform: translate(-25px, 25px) scale(0.95);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.ambient-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+  transition: all 0.8s ease;
+  animation: ambientDrift 14s infinite ease-in-out;
+}
+
+.ambient-orb-1 {
+  width: 480px;
+  height: 480px;
+  top: -100px;
+  left: -100px;
+}
+
+.ambient-orb-2 {
+  width: 520px;
+  height: 520px;
+  bottom: -120px;
+  right: -120px;
+  animation-duration: 18s;
+  animation-direction: reverse;
+}
+
+.ambient-orb-3 {
+  width: 360px;
+  height: 360px;
+  top: 40%;
+  left: 60%;
+  animation-duration: 22s;
+}
+
+/* Theme Presets */
+body {
+  transition: background 0.5s ease, color 0.3s ease;
+}
+
+/* 1. Midnight Slate (Default) */
+body.theme-slate {
+  background-color: #0b1120;
+  background-image: radial-gradient(at top left, #1e293b 0%, transparent 60%);
+  color: #f1f5f9;
+}
+body.theme-slate .ambient-orb-1 { background: #4f46e5; }
+body.theme-slate .ambient-orb-2 { background: #7c3aed; }
+body.theme-slate .ambient-orb-3 { background: #06b6d4; }
+
+/* 2. Warm Linen Beige (Humanized Warm Organic Neutral) */
+body.theme-beige {
+  background-color: #f7f4ee;
+  background-image: 
+    radial-gradient(circle at 12% 18%, rgba(217, 119, 6, 0.07), transparent 45%),
+    radial-gradient(circle at 88% 82%, rgba(180, 83, 9, 0.05), transparent 50%),
+    linear-gradient(135deg, #f7f4ee 0%, #eee8de 100%);
+  color: #292524;
+}
+body.theme-beige .ambient-orb-1 { background: #fde68a; opacity: 0.35; }
+body.theme-beige .ambient-orb-2 { background: #fed7aa; opacity: 0.35; }
+body.theme-beige .ambient-orb-3 { background: #e7e5e4; opacity: 0.3; }
+
+/* 3. Desert Sand & Terracotta */
+body.theme-sand {
+  background-color: #ede4d5;
+  background-image: 
+    radial-gradient(circle at 18% 15%, rgba(194, 65, 12, 0.09), transparent 45%),
+    radial-gradient(circle at 82% 85%, rgba(217, 119, 6, 0.07), transparent 50%),
+    linear-gradient(135deg, #ede4d5 0%, #e2d5c1 100%);
+  color: #292524;
+}
+body.theme-sand .ambient-orb-1 { background: #fdba74; opacity: 0.35; }
+body.theme-sand .ambient-orb-2 { background: #fcd34d; opacity: 0.3; }
+body.theme-sand .ambient-orb-3 { background: #fb923c; opacity: 0.25; }
+
+/* 4. Cozy Warm Latte */
+body.theme-latte {
+  background-color: #e5dac9;
+  background-image: 
+    radial-gradient(circle at 15% 25%, rgba(120, 53, 15, 0.08), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(180, 83, 9, 0.06), transparent 50%),
+    linear-gradient(135deg, #e5dac9 0%, #dacbba 100%);
+  color: #1c1917;
+}
+body.theme-latte .ambient-orb-1 { background: #fed7aa; opacity: 0.4; }
+body.theme-latte .ambient-orb-2 { background: #fef3c7; opacity: 0.35; }
+body.theme-latte .ambient-orb-3 { background: #d6d3d1; opacity: 0.3; }
+
+/* 5. Warm Espresso Dark (Humanized Rich Dark Wood/Coffee) */
+body.theme-espresso {
+  background-color: #1a1614;
+  background-image: 
+    radial-gradient(circle at 18% 22%, rgba(217, 119, 6, 0.2), transparent 45%),
+    radial-gradient(circle at 82% 78%, rgba(194, 65, 12, 0.16), transparent 50%),
+    linear-gradient(135deg, #181412 0%, #261e19 50%, #15110f 100%);
+  color: #fafaf9;
+}
+body.theme-espresso .ambient-orb-1 { background: #d97706; }
+body.theme-espresso .ambient-orb-2 { background: #ea580c; }
+body.theme-espresso .ambient-orb-3 { background: #78350f; }
+
+/* 6. Cosmic Nebula */
+body.theme-nebula {
+  background-color: #070314;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.28), transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(236, 72, 153, 0.22), transparent 50%),
+    linear-gradient(135deg, #070314 0%, #150a2e 50%, #0a041c 100%);
+  color: #f5f3ff;
+}
+body.theme-nebula .ambient-orb-1 { background: #9333ea; }
+body.theme-nebula .ambient-orb-2 { background: #ec4899; }
+body.theme-nebula .ambient-orb-3 { background: #6366f1; }
+
+/* 7. Deep Ocean */
+body.theme-ocean {
+  background-color: #020e1a;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.25), transparent 45%),
+    radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.2), transparent 50%),
+    linear-gradient(135deg, #020c17 0%, #051d34 50%, #031324 100%);
+  color: #f0fdf4;
+}
+body.theme-ocean .ambient-orb-1 { background: #0284c7; }
+body.theme-ocean .ambient-orb-2 { background: #0d9488; }
+body.theme-ocean .ambient-orb-3 { background: #3b82f6; }
+
+/* 8. Cyberpunk Neon */
+body.theme-cyberpunk {
+  background-color: #080312;
+  background-image: 
+    linear-gradient(to right, rgba(6, 182, 212, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(236, 72, 153, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 50% 10%, rgba(236, 72, 153, 0.2), transparent 55%),
+    linear-gradient(135deg, #070211 0%, #140728 100%);
+  background-size: 32px 32px, 32px 32px, 100% 100%, 100% 100%;
+  color: #fdf2f8;
+}
+body.theme-cyberpunk .ambient-orb-1 { background: #06b6d4; }
+body.theme-cyberpunk .ambient-orb-2 { background: #f43f5e; }
+body.theme-cyberpunk .ambient-orb-3 { background: #a855f7; }
+
+/* 9. Emerald Matrix */
+body.theme-emerald {
+  background-color: #02120a;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.25), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(5, 150, 105, 0.2), transparent 50%),
+    linear-gradient(135deg, #021009 0%, #052615 50%, #02150c 100%);
+  color: #ecfdf5;
+}
+body.theme-emerald .ambient-orb-1 { background: #10b981; }
+body.theme-emerald .ambient-orb-2 { background: #059669; }
+body.theme-emerald .ambient-orb-3 { background: #14b8a6; }
+
+/* 10. Sunset Glow */
+body.theme-sunset {
+  background-color: #14050b;
+  background-image: 
+    radial-gradient(circle at 20% 25%, rgba(244, 63, 94, 0.25), transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(245, 158, 11, 0.22), transparent 50%),
+    linear-gradient(135deg, #15050c 0%, #290a18 50%, #17060e 100%);
+  color: #fff1f2;
+}
+body.theme-sunset .ambient-orb-1 { background: #f43f5e; }
+body.theme-sunset .ambient-orb-2 { background: #f59e0b; }
+body.theme-sunset .ambient-orb-3 { background: #ec4899; }
+
+/* 11. Clean Executive Light */
+body.theme-light {
+  background-color: #f8fafc;
+  background-image: radial-gradient(at top left, #e2e8f0 0%, transparent 60%), linear-gradient(135deg, #f8fafc 0%, #eef2f6 100%);
+  color: #0f172a;
+}
+body.theme-light .ambient-orb-1 { background: #cbd5e1; opacity: 0.6; }
+body.theme-light .ambient-orb-2 { background: #e2e8f0; opacity: 0.6; }
+body.theme-light .ambient-orb-3 { background: #e0e7ff; opacity: 0.5; }
+
+/* SHARED HUMANIZED / LIGHT MODE STYLING (Beige, Sand, Latte, Light) */
+body.theme-beige,
+body.theme-sand,
+body.theme-latte,
+body.theme-light {
+  color: #292524 !important;
+}
+
+body.theme-beige header,
+body.theme-sand header,
+body.theme-latte header,
+body.theme-light header {
+  background-color: rgba(255, 254, 250, 0.92) !important;
+  border-color: #e5ded3 !important;
+  box-shadow: 0 1px 3px rgba(68, 64, 60, 0.05);
+}
+
+body.theme-beige header .text-white,
+body.theme-sand header .text-white,
+body.theme-latte header .text-white,
+body.theme-light header .text-white,
+body.theme-beige h1, body.theme-sand h1, body.theme-latte h1, body.theme-light h1,
+body.theme-beige h2, body.theme-sand h2, body.theme-latte h2, body.theme-light h2,
+body.theme-beige h3, body.theme-sand h3, body.theme-latte h3, body.theme-light h3,
+body.theme-beige h4, body.theme-sand h4, body.theme-latte h4, body.theme-light h4 {
+  color: #292524 !important;
+}
+
+body.theme-beige .bg-slate-950\/70,
+body.theme-beige .bg-slate-950\/80,
+body.theme-beige .bg-slate-950\/90,
+body.theme-beige .bg-slate-900,
+body.theme-sand .bg-slate-950\/70,
+body.theme-sand .bg-slate-950\/80,
+body.theme-sand .bg-slate-950\/90,
+body.theme-sand .bg-slate-900,
+body.theme-latte .bg-slate-950\/70,
+body.theme-latte .bg-slate-950\/80,
+body.theme-latte .bg-slate-950\/90,
+body.theme-latte .bg-slate-900,
+body.theme-light .bg-slate-950\/70,
+body.theme-light .bg-slate-950\/80,
+body.theme-light .bg-slate-950\/90,
+body.theme-light .bg-slate-900 {
+  background-color: rgba(255, 255, 253, 0.93) !important;
+  border-color: #e5ded2 !important;
+  color: #292524 !important;
+  box-shadow: 0 10px 25px -5px rgba(68, 64, 60, 0.06), 0 8px 10px -6px rgba(68, 64, 60, 0.04);
+}
+
+body.theme-beige .border-slate-800,
+body.theme-sand .border-slate-800,
+body.theme-latte .border-slate-800,
+body.theme-light .border-slate-800 {
+  border-color: #e5ded2 !important;
+}
+
+body.theme-beige .text-slate-100,
+body.theme-beige .text-slate-200,
+body.theme-sand .text-slate-100,
+body.theme-sand .text-slate-200,
+body.theme-latte .text-slate-100,
+body.theme-latte .text-slate-200,
+body.theme-light .text-slate-100,
+body.theme-light .text-slate-200 {
+  color: #292524 !important;
+}
+
+body.theme-beige .text-slate-300,
+body.theme-sand .text-slate-300,
+body.theme-latte .text-slate-300,
+body.theme-light .text-slate-300 {
+  color: #44403c !important;
+}
+
+body.theme-beige .text-slate-400,
+body.theme-beige .text-slate-500,
+body.theme-sand .text-slate-400,
+body.theme-sand .text-slate-500,
+body.theme-latte .text-slate-400,
+body.theme-latte .text-slate-500,
+body.theme-light .text-slate-400,
+body.theme-light .text-slate-500 {
+  color: #78716c !important;
+}
+
+body.theme-beige textarea,
+body.theme-beige input[type="text"],
+body.theme-beige select,
+body.theme-sand textarea,
+body.theme-sand input[type="text"],
+body.theme-sand select,
+body.theme-latte textarea,
+body.theme-latte input[type="text"],
+body.theme-latte select,
+body.theme-light textarea,
+body.theme-light input[type="text"],
+body.theme-light select {
+  background-color: #ffffff !important;
+  border-color: #d6cebf !important;
+  color: #292524 !important;
+}
+
+body.theme-beige .star-btn,
+body.theme-sand .star-btn,
+body.theme-latte .star-btn,
+body.theme-light .star-btn {
+  background-color: #faf7f2 !important;
+  border-color: #e5ded2 !important;
+}
+
+body.theme-beige #settingsModal .bg-slate-900,
+body.theme-beige #themeModal .bg-slate-900,
+body.theme-sand #settingsModal .bg-slate-900,
+body.theme-sand #themeModal .bg-slate-900,
+body.theme-latte #settingsModal .bg-slate-900,
+body.theme-latte #themeModal .bg-slate-900,
+body.theme-light #settingsModal .bg-slate-900,
+body.theme-light #themeModal .bg-slate-900 {
+  background-color: #fffefb !important;
+  border-color: #e5ded2 !important;
+  color: #292524 !important;
+}
+
+body.theme-beige .theme-swatch,
+body.theme-sand .theme-swatch,
+body.theme-latte .theme-swatch,
+body.theme-light .theme-swatch {
+  background-color: #faf7f2 !important;
+  border-color: #e5ded2 !important;
+}
+body.theme-beige .theme-swatch .text-white,
+body.theme-sand .theme-swatch .text-white,
+body.theme-latte .theme-swatch .text-white,
+body.theme-light .theme-swatch .text-white {
+  color: #292524 !important;
+}
+
+/* Star Buttons Styling */
+.star-btn {
+  cursor: pointer;
+}
+
+.star-btn.selected svg {
+  color: #d97706 !important; /* warm amber */
+}
+
+.star-btn.selected {
+  border-color: rgba(217, 119, 6, 0.5) !important;
+  background-color: rgba(217, 119, 6, 0.1) !important;
+}
+
+/* Navigation Active Tab */
+.nav-tab.active {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* Theme Option Cards in Picker */
+.theme-swatch {
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-swatch:hover {
+  transform: translateY(-2px);
+}
+.theme-swatch.active-theme {
+  border-color: #d97706 !important;
+  box-shadow: 0 0 0 2px #d97706, 0 8px 16px rgba(217, 119, 6, 0.2);
+}
+
+/* Quick Palette Swatch Pills */
+.palette-pill {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.palette-pill:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Sentiment Badge Colors */
+.badge-positive {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-neutral {
+  background-color: rgba(148, 163, 184, 0.15);
+  color: #64748b;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.badge-negative {
+  background-color: rgba(244, 63, 94, 0.15);
+  color: #e11d48;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.badge-not-analysed {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Star Buttons Styling */
+.star-btn {
+  cursor: pointer;
+}
+
+.star-btn.selected svg {
+  color: #f59e0b !important; /* amber-500 */
+}
+
+.star-btn.selected {
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  background-color: rgba(245, 158, 11, 0.1) !important;
+}
+
+/* Navigation Active Tab */
+.nav-tab.active {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* Theme Option Cards in Picker */
+.theme-swatch {
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-swatch:hover {
+  transform: translateY(-2px);
+}
+.theme-swatch.active-theme {
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 2px #6366f1, 0 8px 16px rgba(99, 102, 241, 0.25);
+}
+
+/* Sentiment Badge Colors */
+.badge-positive {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-neutral {
+  background-color: rgba(148, 163, 184, 0.15);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.badge-negative {
+  background-color: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.badge-not-analysed {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
